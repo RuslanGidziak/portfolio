@@ -1,0 +1,1030 @@
+:root {
+  /* Кольори — «Редактор коду»: темна IDE-палітра */
+  --color-paper: #0d1117;
+  --color-paper-alt: #10151c;
+  --color-surface: #161b22;
+  --color-ink: #e6edf3;
+  --color-ink-soft: #8b98a5;
+  --color-sage: #3fb950;
+  --color-sage-dark: #2ea043;
+  --color-gold: #d29922;
+  --color-clay: #58c4dc;
+  --color-navy: #010409;
+  --color-border: #2b323b;
+  --color-white: #fff;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+
+  /* Типографіка: заголовки — геометричний sans, текст — нейтральний UI-шрифт */
+  --font-heading: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Відступи */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  /* Форма / декор */
+  --radius-sm: 0.3rem;
+  --radius-lg: 0.9rem;
+  --shadow-card: 0 10px 30px -12px rgba(27, 42, 46, 0.35);
+  --content-width: 75rem;
+  --transition-fast: 180ms ease;
+  --transition-medium: 320ms ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper: #010409;
+    --color-paper-alt: #060a10;
+    --color-surface: #0d1117;
+    --color-ink: #f0f6fc;
+    --color-ink-soft: #7d8590;
+    --color-sage: #56d364;
+    --color-sage-dark: #3fb950;
+    --color-gold: #e3b341;
+    --color-clay: #76e4f7;
+    --color-navy: #000000;
+    --color-border: #21262d;
+    --color-white: #fff;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body), sans-serif;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading), sans-serif;
+  line-height: 1.2;
+  margin: 0 0 var(--space-sm);
+  color: var(--color-ink);
+}
+
+h1 { font-size: clamp(2.1rem, 1.6rem + 2.2vw, 3.4rem); }
+h2 { font-size: clamp(1.5rem, 1.3rem + 1.1vw, 2.1rem); }
+h3 { font-size: clamp(1.1rem, 1rem + 0.5vw, 1.4rem); }
+
+p { margin: 0 0 var(--space-sm); }
+
+a {
+  color: var(--color-sage-dark);
+  text-decoration: none;
+}
+
+ul, dl {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.container {
+  width: min(100% - 2.5rem, var(--content-width));
+  margin-inline: auto;
+}
+
+section {
+  padding-block: var(--space-xl);
+  scroll-margin-top: 5.5rem;
+}
+
+section:nth-of-type(even) {
+  background-color: var(--color-paper-alt);
+}
+
+.section-title {
+  position: relative;
+  margin-bottom: var(--space-lg);
+  max-width: 40ch;
+}
+
+.section-title::before {
+  content: "// ";
+  display: block;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.85rem;
+  color: var(--color-sage);
+  margin-bottom: var(--space-3xs);
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 3px;
+  margin-top: var(--space-2xs);
+  background-color: var(--color-gold);
+  border-radius: var(--radius-sm);
+}
+
+/* 1. ДОСТУПНІСТЬ: skip-link, фокус */
+.skip-link {
+  position: absolute;
+  left: var(--space-sm);
+  top: -3rem;
+  background: var(--color-navy);
+  color: var(--color-white);
+  padding: var(--space-2xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  z-index: 100;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: var(--space-sm);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 2. ШАПКА ТА НАВІГАЦІЯ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-sm);
+}
+
+.site-header__logo {
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.15rem;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.site-header__logo-mark {
+  font-size: 1.3em;
+}
+
+.site-nav__burger-toggle {
+  cursor: pointer;
+  color: var(--color-white);
+  font-weight: 600;
+  padding: var(--space-2xs) var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  list-style: none;
+  transition: background-color var(--transition-fast);
+}
+
+.site-nav__burger-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.site-nav__burger[open] .site-nav__burger-toggle::after {
+  content: " ▲";
+}
+
+.site-nav__burger:not([open]) .site-nav__burger-toggle::after {
+  content: " ▼";
+}
+
+.site-nav__list {
+  display: none;
+  position: absolute;
+  right: 1.25rem;
+  margin-top: var(--space-2xs);
+  background-color: var(--color-navy);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2xs);
+  min-width: 12rem;
+}
+
+details[open] .site-nav__list {
+  display: block;
+}
+
+.site-nav__item:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-nav__link {
+  display: block;
+  padding: var(--space-2xs) var(--space-xs);
+  color: var(--color-white);
+  position: relative;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.9rem;
+  transition: color var(--transition-fast);
+}
+
+.site-nav__link::before {
+  content: "> ";
+  color: var(--color-sage);
+}
+
+.site-nav__link:hover,
+.site-nav__link:focus-visible {
+  color: var(--color-gold);
+}
+
+.site-nav__link:active {
+  color: var(--color-clay);
+}
+
+.site-nav__link[aria-current="page"]::after {
+  content: "";
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-left: var(--space-2xs);
+  border-radius: 50%;
+  background-color: var(--color-gold);
+}
+
+/* 3. ПРО МЕНЕ (hero) */
+.about {
+  padding-top: var(--space-lg);
+}
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(1.25rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.about__inner {
+  display: grid;
+  gap: var(--space-lg);
+  animation: riseIn 700ms ease both;
+}
+
+.about__media {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xs);
+  max-width: 22rem;
+  margin-inline: auto;
+}
+
+.about__media::before {
+  content: "";
+  display: block;
+  height: 0.7rem;
+  margin-bottom: var(--space-sm);
+  background-image: radial-gradient(circle, #ff5f56 0.35rem, transparent 0.36rem),
+  radial-gradient(circle, #ffbd2e 0.35rem, transparent 0.36rem),
+  radial-gradient(circle, #27c93f 0.35rem, transparent 0.36rem);
+  background-position: 0 50%, 1.1rem 50%, 2.2rem 50%;
+  background-repeat: no-repeat;
+}
+
+.about__photo {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.about__eyebrow {
+  color: var(--color-sage-dark);
+  font-weight: 600;
+  margin-bottom: var(--space-3xs);
+}
+
+.about__name {
+  margin-bottom: var(--space-md);
+}
+
+.about__contact-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-card);
+}
+
+.about__contact-title {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-sm);
+}
+
+.about__address p {
+  margin-bottom: var(--space-3xs);
+}
+
+.about__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+
+.about__social a {
+  border: 1px solid var(--color-border);
+  padding: var(--space-3xs) var(--space-xs);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.about__social a:hover,
+.about__social a:focus-visible {
+  background-color: var(--color-sage);
+  color: var(--color-white);
+}
+
+/* 4. ОСВІТА */
+.education__grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.education__card {
+  background-color: var(--color-surface);
+  border-left: 4px solid var(--color-sage);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+}
+
+.education__period {
+  color: var(--color-ink-soft);
+  font-weight: 500;
+  margin-bottom: var(--space-xs);
+}
+
+/* 5. ПРЕДМЕТИ */
+.subjects__list {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.subjects__item h3 {
+  margin-bottom: var(--space-3xs);
+}
+
+.subjects__item:not(:first-child) {
+  padding-top: var(--space-md);
+  border-top: 1px dashed var(--color-border);
+}
+
+/* 6. НАВИЧКИ */
+.skills__group-title {
+  margin-top: var(--space-lg);
+}
+
+.skills__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.skill {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.skills__list .skill:last-child {
+  border-bottom: none;
+}
+
+.skill__name {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.95rem;
+}
+
+.skill__meter {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.skill__meter-cell {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 0.2rem;
+  background-color: var(--color-border);
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.skill__meter-cell--filled {
+  background-color: var(--color-sage);
+}
+
+.skill:hover .skill__meter-cell--filled {
+  transform: scale(1.15);
+}
+
+.skill__meter-cell:nth-child(5) {
+  border-radius: 0.35rem;
+}
+
+/* 7. ХОБІ (Grid) */
+.hobbies__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+}
+
+.hobby-card {
+  position: relative;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-medium);
+}
+
+.hobby-card:hover {
+  transform: translateY(-6px);
+}
+
+.hobby-card__img {
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+  transition: transform var(--transition-medium);
+}
+
+.hobby-card:hover .hobby-card__img {
+  transform: scale(1.06);
+}
+
+.hobby-card__title,
+.hobby-card p {
+  padding-inline: var(--space-sm);
+}
+
+.hobby-card__title {
+  margin-top: var(--space-sm);
+}
+
+.hobby-card p:last-child {
+  padding-bottom: var(--space-sm);
+}
+
+.hobby-card__badge {
+  position: absolute;
+  top: var(--space-xs);
+  right: var(--space-xs);
+  background-color: var(--color-gold);
+  color: var(--color-navy);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  z-index: 2;
+}
+
+/* 8. КНИГИ (Grid, "загнутий ріжок") */
+.books__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-lg) var(--space-md);
+}
+
+.book-card {
+  position: relative;
+  padding-top: var(--space-sm);
+}
+
+.book-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  background: linear-gradient(135deg, transparent 50%, var(--color-gold) 50%);
+  opacity: 0.85;
+}
+
+.book-card:not(:last-child) {
+  border-right: none;
+}
+
+.book-card__cover {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+  margin-bottom: var(--space-xs);
+}
+
+.book-card__author {
+  color: var(--color-ink-soft);
+  font-style: italic;
+}
+
+/* 9. МУЗИКА */
+.music__list {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.music__item dt {
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.15rem;
+  margin-bottom: var(--space-3xs);
+}
+
+.music__item dd {
+  margin: 0;
+  color: var(--color-ink-soft);
+}
+
+/* 10. ФІЛЬМИ */
+.movies__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-md);
+}
+
+.movie-card__poster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-2xs);
+}
+
+.movie-card__meta {
+  color: var(--color-ink-soft);
+}
+
+/* 11. СПОРТ / ТАБЛИЦЯ */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-surface);
+  min-width: 32rem;
+}
+
+.stats-table caption {
+  text-align: left;
+  font-weight: 600;
+  padding: var(--space-xs);
+  background-color: var(--color-sage-dark);
+  color: var(--color-white);
+}
+
+.stats-table th,
+.stats-table td {
+  padding: var(--space-xs) var(--space-sm);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stats-table thead th {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+}
+
+.stats-table tbody tr:nth-child(even) {
+  background-color: var(--color-paper-alt);
+}
+
+.stats-table tbody tr:hover {
+  background-color: var(--color-gold);
+  color: var(--color-navy);
+}
+
+/* 12. ПОДОРОЖІ / ГАЛЕРЕЯ (Grid) */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-sm);
+}
+
+.gallery__item {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  transition: transform var(--transition-medium);
+}
+
+.gallery__item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery__item figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--space-2xs) var(--space-xs);
+  background: linear-gradient(0deg, rgba(27, 42, 46, 0.85), transparent);
+  color: var(--color-white);
+  font-size: 0.9rem;
+}
+
+/* 13. ПРОЄКТИ */
+.projects__list {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.project-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+}
+
+.project-card__stack {
+  display: inline-block;
+  font-family: var(--font-mono), monospace;
+  color: var(--color-sage);
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-border);
+  padding: 0.15rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+}
+
+.project-card__link {
+  display: inline-block;
+  margin-top: var(--space-2xs);
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-gold);
+  transition: color var(--transition-fast);
+}
+
+.project-card__link:hover,
+.project-card__link:focus-visible {
+  color: var(--color-clay);
+}
+
+/* 14. ЦІЛІ */
+.goals__list {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.goal__row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-3xs);
+  font-weight: 500;
+}
+
+.goal__bar {
+  height: 0.6rem;
+  background-color: var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.goal__bar-fill {
+  display: block;
+  height: 100%;
+  background-color: var(--color-clay);
+}
+
+.goal__bar-fill--15 { width: 15%; }
+.goal__bar-fill--45 { width: 45%; }
+.goal__bar-fill--50 { width: 50%; }
+.goal__bar-fill--60 { width: 60%; }
+
+/* 15. ФАКТИ */
+.facts__list {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.facts__list li {
+  position: relative;
+  padding-left: var(--space-md);
+}
+
+.facts__list li::before {
+  content: "🌿";
+  position: absolute;
+  left: 0;
+}
+
+/* 16. ЦИТАТИ */
+.quote {
+  position: relative;
+  margin: 0 0 var(--space-lg);
+  padding-left: var(--space-lg);
+  max-width: 60ch;
+}
+
+.quote::before {
+  content: "“";
+  position: absolute;
+  left: 0;
+  top: -0.5rem;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 3.5rem;
+  color: var(--color-gold);
+  line-height: 1;
+}
+
+.quote cite {
+  display: block;
+  margin-top: var(--space-2xs);
+  color: var(--color-ink-soft);
+  font-style: normal;
+}
+
+/* 17. КОНТАКТИ / ФОРМА */
+.form {
+  max-width: 40rem;
+  display: grid;
+  gap: var(--space-md);
+}
+
+.form__row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+}
+
+.form__row--checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.form__label {
+  font-weight: 600;
+}
+
+.form__input {
+  font: inherit;
+  padding: var(--space-2xs) var(--space-xs);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form__input:hover {
+  border-color: var(--color-sage);
+}
+
+.form__input:invalid:not(:placeholder-shown):not(:focus) {
+  border-color: var(--color-clay);
+}
+
+.form__input:not(:required) {
+  border-style: dashed;
+}
+
+.form__hint {
+  color: var(--color-ink-soft);
+  font-size: 0.85rem;
+}
+
+.form__input--textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.button {
+  display: inline-block;
+  justify-self: start;
+  padding: var(--space-xs) var(--space-lg);
+  border: none;
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.button--primary {
+  background-color: var(--color-sage);
+  color: var(--color-white);
+}
+
+.button--primary:hover {
+  background-color: var(--color-sage-dark);
+}
+
+.button--primary:active {
+  transform: scale(0.97);
+}
+
+/* 18. ПІДВАЛ */
+.site-footer {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  padding-block: var(--space-lg);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.site-footer__social {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.site-footer__social a {
+  color: var(--color-white);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-fast);
+}
+
+.site-footer__social a:hover,
+.site-footer__social a:focus-visible {
+  border-color: var(--color-gold);
+}
+
+.back-to-top {
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.back-to-top:active {
+  transform: translateY(2px);
+  display: inline-block;
+}
+
+/* 19. МЕДІА-ЗАПИТИ — ПЛАНШЕТ (min-width: 768px) */
+@media (min-width: 768px) {
+  .site-nav__burger-toggle { display: none; }
+
+  .site-nav__list {
+    display: flex;
+    position: static;
+    background: none;
+    border: none;
+    padding: 0;
+    gap: var(--space-sm);
+  }
+
+  .site-nav__item:not(:last-child) {
+    border-bottom: none;
+  }
+
+  .about__inner {
+    grid-template-columns: 1fr 1.4fr;
+    grid-template-areas:
+      "media content"
+      "aside aside";
+    align-items: center;
+  }
+
+  .about__media { grid-area: media; }
+  .about__content { grid-area: content; }
+  .about__contact-card { grid-area: aside; }
+
+  .education__grid,
+  .subjects__list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form__row--checkbox,
+  .form .button {
+    grid-column: 1 / -1;
+  }
+}
+
+/* 20. МЕДІА-ЗАПИТИ — ДЕСКТОП (min-width: 1200px) */
+@media (min-width: 1200px) {
+  section { padding-block: var(--space-2xl); }
+
+  .about__inner {
+    grid-template-columns: 0.8fr 1.6fr 1fr;
+    grid-template-areas: "media content aside";
+    gap: var(--space-xl);
+  }
+
+  .about__content {
+    max-width: 65ch;
+  }
+
+  .education__grid { grid-template-columns: 1fr 1fr; }
+
+  .subjects__list { grid-template-columns: repeat(3, 1fr); }
+
+  .hobbies__grid { grid-template-columns: repeat(4, 1fr); }
+
+  .books__grid { grid-template-columns: repeat(5, 1fr); }
+
+  .movies__grid { grid-template-columns: repeat(3, 1fr); }
+
+  /* "Мозаїка" — різні пропорції для галереї подорожей */
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 10rem;
+  }
+
+  .gallery__item:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .gallery__item:nth-child(4) {
+    grid-row: span 2;
+  }
+
+  .gallery__item img {
+    height: 100%;
+  }
+
+  .projects__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  body {
+    font-size: 1.125rem;
+  }
+
+  .about__content p {
+    max-width: 70ch;
+  }
+}
+
+/* 21. ДРУК */
+@media print {
+  .site-header, .site-footer, .form, .skip-link {
+    display: none;
+  }
+  section {
+    padding-block: var(--space-sm);
+  }
+}
