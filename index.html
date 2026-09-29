@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="uk" prefix="og: https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Руслан Гідзяк — студентське портфоліо</title>
+    <meta name="description" content="Особисте портфоліо студента спеціальності «Прикладна математика»: освіта, навички, проєкти, хобі та контакти.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%20100%27%3E%3Ctext%20y%3D%27.9em%27%20font-size%3D%2790%27%3E%F0%9F%92%BB%3C%2Ftext%3E%3C%2Fsvg%3E">
+
+    <meta property="og:title" content="Руслан Гідзяк — студентське портфоліо">
+    <meta property="og:description" content="Освіта, навички, проєкти та захоплення студента спеціальності «Прикладна математика», ЛНУ ім. Івана Франка.">
+    <meta property="og:image" content="img/og-cover.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="uk_UA">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body id="top">
+
+<a class="skip-link" href="#main">Перейти до основного вмісту</a>
+
+<header class="site-header">
+    <div class="site-header__inner container">
+        <a class="site-header__logo" href="#top" aria-label="На початок сторінки">
+            <span class="site-header__logo-mark" aria-hidden="true">&lt;/&gt;</span>
+            Руслан&nbsp;Гідзяк
+        </a>
+
+        <nav class="site-nav" aria-label="Основна навігація">
+            <details class="site-nav__burger">
+                <summary class="site-nav__burger-toggle" aria-label="Відкрити меню навігації">Меню</summary>
+                <ul class="site-nav__list">
+                    <li class="site-nav__item"><a class="site-nav__link" href="#about" aria-current="page">Про мене</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="#education">Освіта</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="#skills">Навички</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="#hobbies">Хобі</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="#books">Книги</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="#projects">Проєкти</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="#travel">Подорожі</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="#contact">Контакти</a></li>
+                </ul>
+            </details>
+        </nav>
+    </div>
+</header>
+
+<main id="main">
+
+    <!-- 1. ПРО МЕНЕ -->
+    <section class="about" id="about" aria-labelledby="about-title">
+        <div class="container about__inner">
+            <div class="about__media">
+                <picture>
+                    <source media="(min-width: 768px)" srcset="img/avatar-desktop.jpg">
+                    <img class="about__photo" src="img/avatar-mobile.jpg" alt="Портрет Руслана Гідзяка" width="1284" height="2250" loading="lazy">
+                </picture>
+            </div>
+
+            <div class="about__content">
+                <p class="about__eyebrow">Привіт, мене звати</p>
+                <h1 id="about-title" class="about__name">Руслан Гідзяк</h1>
+                <p class="about__lead">
+                    Мені 19 років, навчаюся на 3 курсі «Прикладної математики» в ЛНУ ім. Івана Франка.
+                    Більшість часу йде на пари й дзюдо, а решту стараюся проводити з користю.
+                </p>
+                <p class="about__lead">
+                    У вільний час рибалю, читаю, дивлюся серіали й слухаю музику. Це портфоліо —
+                    мій навчальний проєкт з чистого HTML та CSS, без жодного рядка JavaScript.
+                </p>
+            </div>
+
+            <aside class="about__contact-card" aria-label="Швидкі контакти">
+                <h2 class="about__contact-title">Де мене знайти</h2>
+                <address class="about__address">
+                    <p>Рогатин → Львів, Україна</p>
+                </address>
+                <ul class="about__social">
+                    <li><a href="https://t.me/Ruslan_Gidziak" aria-label="Мій Telegram">Telegram</a></li>
+                    <li><a href="https://www.instagram.com/ruslan_gidziak" aria-label="Мій Instagram">Instagram</a></li>
+                    <li><a href="#contact">Написати форму</a></li>
+                </ul>
+            </aside>
+        </div>
+    </section>
+
+    <!-- 2 і 3. ОСВІТА: ШКОЛА + УНІВЕРСИТЕТ -->
+    <section class="education" id="education" aria-labelledby="education-title">
+        <div class="container">
+            <h2 id="education-title" class="section-title">Освіта</h2>
+
+            <div class="education__grid">
+                <article class="education__card">
+                    <h3 class="education__role"><a href="https://if.isuo.org/schools/view/id/11087">Рогатинський ліцей №1</a></h3>
+                    <p class="education__period"><time datetime="2016">2016</time> — <time datetime="2024">2024</time></p>
+                    <p>
+                        Найбільше запам'яталися однокласники, хороші вчителі та різноманітні шкільні
+                        заходи — а найяскравіший спогад, звісно, випускний.
+                    </p>
+                </article>
+
+                <article class="education__card">
+                    <h3 class="education__role">ЛНУ ім. Івана Франка</h3>
+                    <p class="education__period"><time datetime="2023">з 2023</time> · спеціальність «Прикладна математика», 3 курс</p>
+                    <p>
+                        Улюблені дисципліни — «Програмне забезпечення», «Основи веб-програмування» та
+                        ТІМС (теорія ймовірностей і математична статистика).
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. УЛЮБЛЕНІ ПРЕДМЕТИ -->
+    <section class="subjects" id="subjects" aria-labelledby="subjects-title">
+        <div class="container">
+            <h2 id="subjects-title" class="section-title">Улюблені навчальні предмети</h2>
+            <ul class="subjects__list">
+                <li class="subjects__item">
+                    <h3>Програмне забезпечення</h3>
+                    <p>Тут пишемо реальні програми, а не просто вчимо теорію — мені так набагато цікавіше.</p>
+                </li>
+                <li class="subjects__item">
+                    <h3>Основи веб-програмування</h3>
+                    <p>Завдяки цьому предмету з'явилося оце портфоліо. Подобається, що результат видно одразу.</p>
+                </li>
+                <li class="subjects__item">
+                    <h3>ТІМС (теорія ймовірностей і математична статистика)</h3>
+                    <p>Спочатку здавалося складно, та коли розібрався — виявилося дуже логічним і навіть цікавим предметом.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 5. НАВИЧКИ -->
+    <section class="skills" id="skills" aria-labelledby="skills-title">
+        <div class="container">
+            <h2 id="skills-title" class="section-title">Навички</h2>
+
+            <h3 class="skills__group-title">Технічні</h3>
+            <ul class="skills__list">
+                <li class="skill">
+                    <span class="skill__name">C#</span>
+                    <div class="skill__meter" role="img" aria-label="Рівень володіння: середній, 3 з 5">
+                        <span class="skill__meter-cell skill__meter-cell--filled"></span>
+                        <span class="skill__meter-cell skill__meter-cell--filled"></span>
+                        <span class="skill__meter-cell skill__meter-cell--filled"></span>
+                        <span class="skill__meter-cell"></span>
+                        <span class="skill__meter-cell"></span>
+                    </div>
+                </li>
+                <li class="skill">
+                    <span class="skill__name">Python</span>
+                    <div class="skill__meter" role="img" aria-label="Рівень володіння: нижче середнього, 2 з 5">
+                        <span class="skill__meter-cell skill__meter-cell--filled"></span>
+                        <span class="skill__meter-cell skill__meter-cell--filled"></span>
+                        <span class="skill__meter-cell"></span>
+                        <span class="skill__meter-cell"></span>
+                        <span class="skill__meter-cell"></span>
+                    </div>
+                </li>
+                <li class="skill">
+                    <span class="skill__name">HTML &amp; CSS</span>
+                    <div class="skill__meter" role="img" aria-label="Рівень володіння: нижче середнього, 2 з 5">
+                        <span class="skill__meter-cell skill__meter-cell--filled"></span>
+                        <span class="skill__meter-cell skill__meter-cell--filled"></span>
+                        <span class="skill__meter-cell"></span>
+                        <span class="skill__meter-cell"></span>
+                        <span class="skill__meter-cell"></span>
+                    </div>
+                </li>
+            </ul>
+
+            <h3 class="skills__group-title">М'які навички</h3>
+            <ul class="skills__list skills__list--soft">
+                <li class="skill">
+                    <span class="skill__name">Врегулювання конфліктів</span>
+                    <div class="skill__meter" role="img" aria-label="Рівень володіння: вище середнього, 4 з 5">
+                        <span class="skill__meter-cell skill__meter-cell--filled"></span>
+                        <span class="skill__meter-cell skill__meter-cell--filled"></span>
+                        <span class="skill__meter-cell skill__meter-cell--filled"></span>
+                        <span class="skill__meter-cell skill__meter-cell--filled"></span>
+                        <span class="skill__meter-cell"></span>
+                    </div>
+                </li>
+                <li class="skill">
+                    <span class="skill__name">Командний гравець</span>
+                    <div class="skill__meter" role="img" aria-label="Рівень володіння: середній, 3 з 5">
+                        <span class="skill__meter-cell skill__meter-cell--filled"></span>
+                        <span class="skill__meter-cell skill__meter-cell--filled"></span>
+                        <span class="skill__meter-cell skill__meter-cell--filled"></span>
+                        <span class="skill__meter-cell"></span>
+                        <span class="skill__meter-cell"></span>
+                    </div>
+                </li>
+                <li class="skill">
+                    <span class="skill__name">Нетворкінг</span>
+                    <div class="skill__meter" role="img" aria-label="Рівень володіння: середній, 3 з 5">
+                        <span class="skill__meter-cell skill__meter-cell--filled"></span>
+                        <span class="skill__meter-cell skill__meter-cell--filled"></span>
+                        <span class="skill__meter-cell skill__meter-cell--filled"></span>
+                        <span class="skill__meter-cell"></span>
+                        <span class="skill__meter-cell"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 6. ХОБІ -->
+    <section class="hobbies" id="hobbies" aria-labelledby="hobbies-title">
+        <div class="container">
+            <h2 id="hobbies-title" class="section-title">Хобі та захоплення</h2>
+            <div class="hobbies__grid">
+                <article class="hobby-card">
+                    <span class="hobby-card__badge" aria-hidden="true">★</span>
+                    <img class="hobby-card__img" src="img/hobby-gym-judo.jpg" alt="Тренування в залі та дзюдо" width="1284" height="1714" loading="lazy">
+                    <h3 class="hobby-card__title">Зал і дзюдо</h3>
+                    <p>Ходжу в тренажерний зал і займаюся дзюдо — це і фізична форма, і дисципліна.</p>
+                </article>
+                <article class="hobby-card">
+                    <img class="hobby-card__img" src="img/hobby-fishing.jpg" alt="Риболовля на березі водойми" width="1284" height="963" loading="lazy">
+                    <h3 class="hobby-card__title">Риболовля</h3>
+                    <p>Найкращий спосіб відключитися від навчання хоча б на кілька годин.</p>
+                </article>
+                <article class="hobby-card">
+                    <img class="hobby-card__img" src="img/hobby-reading.jpg" alt="Книга, розгорнута для читання" width="1284" height="861" loading="lazy">
+                    <h3 class="hobby-card__title">Читання</h3>
+                    <p>Читаю переважно нонфікшн — про психологію, вплив та особисту ефективність.</p>
+                </article>
+                <article class="hobby-card">
+                    <img class="hobby-card__img" src="img/hobby-music.jpg" alt="Навушники для прослуховування музики" width="1284" height="1334" loading="lazy">
+                    <h3 class="hobby-card__title">Музика</h3>
+                    <p>Слухаю українську сцену майже щодня — під навчання, дорогу чи тренування.</p>
+                </article>
+                <article class="hobby-card">
+                    <img class="hobby-card__img" src="img/hobby-movies.jpg" alt="Перегляд фільму ввечері" width="676" height="1200" loading="lazy">
+                    <h3 class="hobby-card__title">Фільми та серіали</h3>
+                    <p>Люблю вечір з хорошим серіалом — особливо коли сюжет тримає в напрузі.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. КНИГИ -->
+    <section class="books" id="books" aria-labelledby="books-title">
+        <div class="container">
+            <h2 id="books-title" class="section-title">Улюблені книги</h2>
+            <div class="books__grid">
+                <article class="book-card">
+                    <img class="book-card__cover" src="img/book-48-zakoniv-vlady.jpg" alt="Обкладинка книги «48 законів влади»" width="217" height="321" loading="lazy">
+                    <h3 class="book-card__title">«48 законів влади»</h3>
+                    <p class="book-card__author">Роберт Ґрін</p>
+                    <p>Змінила погляд на те, як насправді працюють стосунки, вплив і репутація.</p>
+                </article>
+                <article class="book-card">
+                    <img class="book-card__cover" src="img/book-bagatyi-tato.jpg" alt="Обкладинка книги «Багатий тато, бідний тато»" width="363" height="550" loading="lazy">
+                    <h3 class="book-card__title">«Багатий тато, бідний тато»</h3>
+                    <p class="book-card__author">Роберт Кійосакі</p>
+                    <p>Перша книга, яка змусила мене замислитися про фінансову грамотність по-справжньому.</p>
+                </article>
+                <article class="book-card">
+                    <img class="book-card__cover" src="img/book-charlie.jpg" alt="Обкладинка книги «Чарлі і шоколадна фабрика»" width="452" height="678" loading="lazy">
+                    <h3 class="book-card__title">«Чарлі і шоколадна фабрика»</h3>
+                    <p class="book-card__author">Роальд Дал</p>
+                    <p>Улюблена книга з дитинства — досі іноді перечитую окремі розділи для настрою.</p>
+                </article>
+                <article class="book-card">
+                    <img class="book-card__cover" src="img/book-navchysia-vchytysia.jpg" alt="Обкладинка книги «Навчися вчитися»" width="212" height="321" loading="lazy">
+                    <h3 class="book-card__title">«Навчися вчитися»</h3>
+                    <p class="book-card__author">Барбара Оуклі</p>
+                    <p>Практичні техніки, які реально допомогли швидше засвоювати складні предмети.</p>
+                </article>
+                <article class="book-card">
+                    <img class="book-card__cover" src="img/book-psyhologiya-vplyvu.jpg" alt="Обкладинка книги «Психологія впливу»" width="241" height="321" loading="lazy">
+                    <h3 class="book-card__title">«Психологія впливу»</h3>
+                    <p class="book-card__author">Роберт Чалдіні</p>
+                    <p>Після цієї книги стало набагато простіше помічати маніпуляції в рекламі та переговорах.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. МУЗИКА -->
+    <section class="music" id="music" aria-labelledby="music-title">
+        <div class="container">
+            <h2 id="music-title" class="section-title">Улюблена музика</h2>
+            <p>Переважно українська сцена — від репу до альтернативи. Ось виконавці, до яких
+                повертаюся найчастіше:</p>
+            <dl class="music__list">
+                <div class="music__item">
+                    <dt>Жадан і Собаки</dt>
+                    <dd>Альбом «Мадонна» — енергійний панк-рок із текстами, які чіпляють.</dd>
+                </div>
+                <div class="music__item">
+                    <dt>Бумбокс</dt>
+                    <dd>Альбоми «Меломанія» та «Family бізнес» — універсальний плейлист майже на будь-який настрій.</dd>
+                </div>
+                <div class="music__item">
+                    <dt>Chico Qatoshi</dt>
+                    <dd>Тримаю в плейлисті на тренування — атмосферний і трохи хуліганський звук.</dd>
+                </div>
+            </dl>
+        </div>
+    </section>
+
+    <!-- 9. ФІЛЬМИ -->
+    <section class="movies" id="movies" aria-labelledby="movies-title">
+        <div class="container">
+            <h2 id="movies-title" class="section-title">Улюблені фільми та серіали</h2>
+            <div class="movies__grid">
+                <article class="movie-card">
+                    <img class="movie-card__poster" src="img/movie-paperovyi-budynok.jpg" alt="Постер серіалу «Паперовий будинок»" width="250" height="345" loading="lazy">
+                    <h3>Паперовий будинок</h3>
+                    <p class="movie-card__meta">2017 · <span role="img" aria-label="Оцінка 5 з 5 зірок">★★★★★</span></p>
+                </article>
+                <article class="movie-card">
+                    <img class="movie-card__poster" src="img/movie-avatar.jpg" alt="Постер фільму «Аватар»" width="250" height="345" loading="lazy">
+                    <h3>Аватар</h3>
+                    <p class="movie-card__meta">2009 · <span role="img" aria-label="Оцінка 5 з 5 зірок">★★★★★</span></p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. СПОРТ (+ ТАБЛИЦЯ) -->
+    <section class="sports" id="sports" aria-labelledby="sports-title">
+        <div class="container">
+            <h2 id="sports-title" class="section-title">Спорт та активності</h2>
+            <p>
+                Ходжу на дзюдо і займаюся в тренажерному залі. Найбільше пишаюся результатами на
+                обласних змаганнях із дзюдо:
+            </p>
+            <div class="table-wrap">
+                <table class="stats-table">
+                    <caption>Досягнення на змаганнях із дзюдо</caption>
+                    <thead>
+                    <tr>
+                        <th scope="col">Рік</th>
+                        <th scope="col">Змагання</th>
+                        <th scope="col">Рівень</th>
+                        <th scope="col">Місце</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">2022</th>
+                        <td>Обласні змагання з дзюдо</td>
+                        <td>Юніори</td>
+                        <td>1 місце</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2023</th>
+                        <td>Обласні змагання з дзюдо</td>
+                        <td>Юніори</td>
+                        <td>1 місце</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2024</th>
+                        <td>Чемпіонат області з дзюдо</td>
+                        <td>Дорослі</td>
+                        <td>1 місце</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. ПОДОРОЖІ (ГАЛЕРЕЯ) -->
+    <section class="travel" id="travel" aria-labelledby="travel-title">
+        <div class="container">
+            <h2 id="travel-title" class="section-title">Подорожі та місця</h2>
+            <div class="gallery">
+                <figure class="gallery__item">
+                    <img src="img/travel-nieuwpoort.jpg" alt="Узбережжя в Нюпорті, Бельгія" width="1284" height="1724" loading="lazy">
+                    <figcaption>Нюпорт, Бельгія — перша подорож до узбережжя Північного моря.</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="img/travel-warsaw.jpg" alt="Центр Варшави, Польща" width="1284" height="2503" loading="lazy">
+                    <figcaption>Варшава, Польща — коротка, але насичена поїздка вихідного дня.</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. ПРОЄКТИ (лише навчальні) -->
+    <section class="projects" id="projects" aria-labelledby="projects-title">
+        <div class="container">
+            <h2 id="projects-title" class="section-title">Навчальні проєкти</h2>
+            <div class="projects__list">
+                <article class="project-card">
+                    <h3>Це портфоліо</h3>
+                    <p class="project-card__stack">HTML5 · CSS3 · Grid · Flexbox</p>
+                    <p>Навчальний проєкт з курсу «Основи веб-програмування» — адаптивний сайт mobile-first без фреймворків і без JS.</p>
+                    <a class="project-card__link" href="#top">Переглянути демо</a>
+                </article>
+                <article class="project-card">
+                    <h3>Консольний застосунок на C#</h3>
+                    <p class="project-card__stack">C# · ООП</p>
+                    <p>Лабораторна робота з курсу «Програмне забезпечення» — застосунок з класами, інтерфейсами та наслідуванням.</p>
+                </article>
+                <article class="project-card">
+                    <h3>Навчальна база даних з EF Core</h3>
+                    <p class="project-card__stack">C# · Entity Framework Core · SQL Server</p>
+                    <p>Практична робота з проєктування бази даних та роботи з нею через Code First і DB First підходи.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. ЦІЛІ -->
+    <section class="goals" id="goals" aria-labelledby="goals-title">
+        <div class="container">
+            <h2 id="goals-title" class="section-title">Цілі на найближчий рік</h2>
+            <ul class="goals__list">
+                <li class="goal">
+                    <div class="goal__row"><span>Добре вивчити C#</span><span>45%</span></div>
+                    <div class="goal__bar"><span class="goal__bar-fill goal__bar-fill--45"></span></div>
+                </li>
+                <li class="goal">
+                    <div class="goal__row"><span>Вивчити курс «Основи веб-програмування» на відмінно</span><span>60%</span></div>
+                    <div class="goal__bar"><span class="goal__bar-fill goal__bar-fill--60"></span></div>
+                </li>
+                <li class="goal">
+                    <div class="goal__row"><span>Покращити знання англійської</span><span>50%</span></div>
+                    <div class="goal__bar"><span class="goal__bar-fill goal__bar-fill--50"></span></div>
+                </li>
+                <li class="goal">
+                    <div class="goal__row"><span>Отримати перший досвід роботи в IT</span><span>15%</span></div>
+                    <div class="goal__bar"><span class="goal__bar-fill goal__bar-fill--15"></span></div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 14. ЦІКАВІ ФАКТИ -->
+    <section class="facts" id="facts" aria-labelledby="facts-title">
+        <div class="container">
+            <h2 id="facts-title" class="section-title">Цікаві факти про мене</h2>
+            <ul class="facts__list">
+                <li>Люблю подорожувати, навіть якщо це поїздка на вихідні в сусідню країну.</li>
+                <li>Можу довго слухати музику — вона майже завжди грає на фоні під час навчання.</li>
+                <li>Цікавлюся технологіями і люблю розбиратися, як усе працює зсередини.</li>
+                <li>Люблю працювати за комп'ютером — це і навчання, і хобі одночасно.</li>
+                <li>Займаюся дзюдо ще зі школи — татамі дисциплінує не гірше, ніж дедлайни.</li>
+                <li>Можу годинами сидіти з вудкою і повернутися додому без жодної риби — і це нормально.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 15. ЦИТАТИ -->
+    <section class="quotes" id="quotes" aria-labelledby="quotes-title">
+        <div class="container">
+            <h2 id="quotes-title" class="section-title">Улюблені цитати</h2>
+
+            <blockquote class="quote">
+                <p>Завжди тримайте свої наміри в таємниці.</p>
+                <cite>— Роберт Ґрін, «48 законів влади»</cite>
+            </blockquote>
+
+            <blockquote class="quote">
+                <p>Чим більше ви говорите, тим простішими й більш уразливими здаєтеся, адже зайві слова легко обернути проти вас.</p>
+                <cite>— Роберт Ґрін, «48 законів влади»</cite>
+            </blockquote>
+
+            <blockquote class="quote">
+                <p>Будьте непередбачуваними.</p>
+                <cite>— Роберт Ґрін, «48 законів влади»</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- 16. КОНТАКТИ / ФОРМА -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+            <h2 id="contact-title" class="section-title">Зв'язатися зі мною</h2>
+            <p>Маєте питання щодо навчання чи хочете обговорити спільний проєкт? Напишіть мені.</p>
+
+            <form class="form" action="#" method="post" novalidate>
+                <div class="form__row">
+                    <label class="form__label" for="name">Ім'я</label>
+                    <input class="form__input" type="text" id="name" name="name" required minlength="2" autocomplete="name">
+                </div>
+
+                <div class="form__row">
+                    <label class="form__label" for="email">Електронна пошта</label>
+                    <input class="form__input" type="email" id="email" name="email" required
+                           pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" autocomplete="email"
+                           aria-describedby="email-hint">
+                    <span class="form__hint" id="email-hint">Наприклад: ім'я@пошта.com</span>
+                </div>
+
+                <div class="form__row">
+                    <label class="form__label" for="subject">Тема</label>
+                    <select class="form__input" id="subject" name="subject" required>
+                        <option value="" disabled selected>Оберіть тему</option>
+                        <option value="study">Навчання</option>
+                        <option value="project">Спільний проєкт</option>
+                        <option value="other">Інше</option>
+                    </select>
+                </div>
+
+                <div class="form__row">
+                    <label class="form__label" for="message">Повідомлення</label>
+                    <textarea class="form__input form__input--textarea" id="message" name="message"
+                              required minlength="10" rows="5"></textarea>
+                </div>
+
+                <div class="form__row form__row--checkbox">
+                    <input type="checkbox" id="consent" name="consent" required>
+                    <label for="consent">Погоджуюсь на обробку персональних даних</label>
+                </div>
+
+                <button class="button button--primary" type="submit">Надіслати повідомлення</button>
+            </form>
+        </div>
+    </section>
+
+</main>
+
+<!-- 17. ПІДВАЛ -->
+<footer class="site-footer">
+    <div class="container site-footer__inner">
+        <p>&copy; <time datetime="2026">2026</time> Руслан Гідзяк.</p>
+        <ul class="site-footer__social">
+            <li><a href="https://t.me/Ruslan_Gidziak" aria-label="Telegram">Telegram</a></li>
+            <li><a href="https://www.instagram.com/ruslan_gidziak" aria-label="Instagram">Instagram</a></li>
+        </ul>
+        <a class="back-to-top" href="#top">Нагору ↑</a>
+    </div>
+</footer>
+
+</body>
+</html>
