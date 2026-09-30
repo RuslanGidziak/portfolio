@@ -6,7 +6,8 @@
 
 ## Жива версія
 
-https://github.com/RuslanGidziak/portfolio.git
+https://ruslangidziak.github.io/portfolio/
+
 
 ## Структура проєкту
 
